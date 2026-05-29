@@ -321,7 +321,7 @@ void makeScenario2(Environment &env, std::vector<double> &start, std::vector<dou
 
 void planScenario1(ompl::geometric::SimpleSetup &ss, Environment &env)
 {   
-    // TODO: Plan for chain_box in the plane, and store the path in path1.txt. 
+    // Plan for chain_box in the plane, and store the path in path1.txt. 
     auto planner(std::make_shared<og::RRTConnect>(ss.getSpaceInformation()));
    
     ss.setPlanner(planner);
@@ -346,7 +346,7 @@ void planScenario1(ompl::geometric::SimpleSetup &ss, Environment &env)
 
 void benchScenario1(ompl::geometric::SimpleSetup &ss)
 {
-    //TODO: Benchmark PRM with uniform, bridge, gaussian, and obstacle-based Sampling. Do 20 trials with 20 seconds each 
+    // Benchmark PRM with uniform, bridge, gaussian, and obstacle-based Sampling. Do 20 trials with 20 seconds each 
     double runtime_limit = 20, memory_limit = 1024;
     int run_count = 20;
     ompl::tools::Benchmark::Request request(runtime_limit, memory_limit, run_count, 0.5);
@@ -396,10 +396,10 @@ void benchScenario1(ompl::geometric::SimpleSetup &ss)
 
 void planScenario2(ompl::geometric::SimpleSetup &ss,Environment &env,bool optimal)
 {
-    // TODO: Plan for chain_box in the plane, with a clearance optimization objective, with an Asymptoticallly optimal planner of your choice and store the path in path2.txt
+    // Plan for chain_box in the plane, with a clearance optimization objective, with an Asymptoticallly optimal planner of your choice and store the path in path2.txt
    
     ss.setOptimizationObjective(std::make_shared<ClearanceObjective>(ss.getSpaceInformation()));
-    // TODO: Plan for chain_box in the plane, and store the path in path1.txt. 
+    //  Plan for chain_box in the plane, and store the path in path1.txt. 
     auto planner=std::make_shared<og::PRMstar>(ss.getSpaceInformation());
   
     
@@ -431,7 +431,7 @@ void planScenario2(ompl::geometric::SimpleSetup &ss,Environment &env,bool optima
 
 void benchScenario2(ompl::geometric::SimpleSetup &ss)
 {
-    //TODO: Benchmark RRT*, PRM*, RRT# for 10 trials with 60 secounds timeout.
+    // Benchmark RRT*, PRM*, RRT# for 10 trials with 60 secounds timeout.
     double runtime_limit = 60, memory_limit = 1024;
     int run_count = 10;
     ompl::tools::Benchmark::Request request(runtime_limit, memory_limit, run_count, 0.5);
@@ -457,7 +457,7 @@ void benchScenario2(ompl::geometric::SimpleSetup &ss)
 }
 
 std::shared_ptr<ompl::base::CompoundStateSpace> createChainBoxSpace()
-{   //TODO Create the Chainbox ConfigurationSpace
+{   //Create the Chainbox ConfigurationSpace
     auto space = std::make_shared<ompl::base::CompoundStateSpace>();  
    
     //space->addSubspace(ompl::base::StateSpacePtr(new ompl::base::SE2StateSpace()),1.0);
